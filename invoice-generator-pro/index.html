@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator Pro</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+
+        <header>
+
+            <h1>💼 Invoice Generator Pro</h1>
+
+            <button id="themeBtn">
+                🌙 Dark Mode
+            </button>
+
+        </header>
+
+        <!-- Company & Client Info -->
+
+        <div class="form-grid">
+
+            <div class="card">
+
+                <h2>🏢 Company Information</h2>
+
+                <input type="text"
+                    id="companyName"
+                    placeholder="Company Name">
+
+                <input type="text"
+                    id="companyAddress"
+                    placeholder="Company Address">
+
+                <input type="email"
+                    id="companyEmail"
+                    placeholder="Company Email">
+
+            </div>
+
+            <div class="card">
+
+                <h2>👤 Client Information</h2>
+
+                <input type="text"
+                    id="clientName"
+                    placeholder="Client Name">
+
+                <input type="text"
+                    id="clientAddress"
+                    placeholder="Client Address">
+
+                <input type="email"
+                    id="clientEmail"
+                    placeholder="Client Email">
+
+            </div>
+
+        </div>
+
+        <!-- Invoice Details -->
+
+        <div class="card">
+
+            <h2>📄 Invoice Details</h2>
+
+            <div class="invoice-details">
+
+                <input type="text"
+                    id="invoiceNumber"
+                    readonly>
+
+                <input type="date"
+                    id="invoiceDate">
+
+            </div>
+
+        </div>
+
+        <!-- Product Form -->
+
+        <div class="card">
+
+            <h2>🛒 Add Product</h2>
+
+            <div class="product-form">
+
+                <input type="text"
+                    id="productName"
+                    placeholder="Product Name">
+
+                <input type="number"
+                    id="productQty"
+                    placeholder="Qty">
+
+                <input type="number"
+                    id="productPrice"
+                    placeholder="Price">
+
+                <button onclick="addProduct()">
+                    ➕ Add
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Product Table -->
+
+        <div class="card">
+
+            <h2>📋 Products</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="productTable"></tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Summary -->
+
+        <div class="summary-grid">
+
+            <div class="summary-card">
+
+                <h3 id="subtotal">
+                    ₹0
+                </h3>
+
+                <p>Subtotal</p>
+
+            </div>
+
+            <div class="summary-card">
+
+                <h3 id="taxAmount">
+                    ₹0
+                </h3>
+
+                <p>Tax (10%)</p>
+
+            </div>
+
+            <div class="summary-card">
+
+                <h3 id="grandTotal">
+                    ₹0
+                </h3>
+
+                <p>Grand Total</p>
+
+            </div>
+
+        </div>
+
+        <!-- Invoice Preview -->
+
+        <div class="card">
+
+            <h2>🖨 Invoice Preview</h2>
+
+            <div id="invoicePreview">
+
+                <p>
+                    Invoice preview will appear here...
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Actions -->
+
+        <div class="action-buttons">
+
+            <button onclick="downloadPDF()">
+                📥 Download PDF
+            </button>
+
+            <button onclick="printInvoice()">
+                🖨 Print Invoice
+            </button>
+
+            <button onclick="clearInvoice()">
+                🗑 Clear Invoice
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="toast"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
